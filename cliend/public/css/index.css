@@ -32,7 +32,7 @@ p{
   height:35px;
 }
 .hero-component{
-  height: 600px;
+  height: 500px;
   background-image: url("../img/hiro_bg.png") ;
   background-repeat: no-repeat;
   background-size: cover;

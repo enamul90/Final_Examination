@@ -1,11 +1,12 @@
 
-import blogModels from "../models/FormModels.js"
+import blogModels from "../models/BlogModels.js"
 import termModels from "../models/TermModels.js";
 import serviceModels from '../models/ServiceModels.js';
 import formModels from "../models/FormModels.js";
 
 export const PublicBlogController = async (req, res) => {
 
+    console.log( req.params.remark)
     try{
 
         let prams = req.params.remark
