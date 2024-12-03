@@ -1,8 +1,12 @@
 
 import blogModels from "../models/BlogModels.js"
-import termModels from "../models/TermModels.js";
+import termModels from "../models/TeamModels.js";
 import serviceModels from '../models/ServiceModels.js';
 import formModels from "../models/FormModels.js";
+import  blogDetailsModels from "../models/BlogDetailModels.js"
+
+import mongoose from "mongoose";
+const ObjectId = mongoose.Types.ObjectId;
 
 export const PublicBlogController = async (req, res) => {
 
@@ -17,6 +21,38 @@ export const PublicBlogController = async (req, res) => {
         let result = await  blogModels.aggregate([
             MatchStage
         ]);
+
+        return res.json({Status:"Success", data:result});
+    }
+    catch(err){
+        return res.json({Status:"fail",  Error:err.toString(err)});
+    }
+
+}
+
+export const PublicBlogDetailController = async (req, res) => {
+
+    try{
+
+        let id = req.params.id
+        let mid = new ObjectId(id)
+        let BlogListMatchStage= {$match:{_id:mid}};
+        let BlogDetailMatchStage= {$match:{blogID:id}};
+
+        let blogList = await  blogModels.aggregate([
+            BlogListMatchStage
+        ]);
+
+        let blogDetail = await  blogDetailsModels.aggregate([
+            BlogDetailMatchStage
+        ]);
+
+
+        let result ={
+            blogList:blogList[0],
+            blogDetail :blogDetail[0]
+        }
+
 
         return res.json({Status:"Success", data:result});
     }

@@ -6,7 +6,7 @@ const Layout = (props) => {
     return (
         <>
             <AppNav/>
-            <div>{props.children}</div>
+            <div className="min-vh-100">{props.children}</div>
             <Footer/>
         </>
     );

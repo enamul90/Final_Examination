@@ -10,5 +10,5 @@ const termSchema = new mongoose.Schema(
 )
 
 
-const termModels = mongoose.model('terms', termSchema);
-export default  termModels;
+const TeamModels = mongoose.model('teams', termSchema);
+export default   TeamModels;

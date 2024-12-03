@@ -8,6 +8,7 @@ const BlogPage = () => {
         <Layout>
             <BlogHeader />
             <BlogCart />
+            <div className="py-4"></div>
         </Layout>
     );
 };

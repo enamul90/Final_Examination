@@ -8,7 +8,15 @@ export const Registration = async (req, res) => {
     try{
         let reqBody = req.body;
 
-        await UsersModels.create(reqBody);
+        let {email ,name, password ,img} = reqBody
+
+        let Body = {
+            name: name,
+            email: email,
+            password: password,
+            img :img
+        }
+        await UsersModels.updateOne( {email:email},{$set:Body}, {upsert:true} )
         return res.json({Status:"Success", Message:"User register Successfully"});
 
     }

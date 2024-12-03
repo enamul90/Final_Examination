@@ -5,7 +5,7 @@ const ServiceComponent = () => {
     return (
         <div className="service container py-4">
 
-            <div className=" mb-3">
+            <div className=" mb-1">
                 {
                     [1,2,3,4,5].map(i => {
                         return (
