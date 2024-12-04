@@ -4,6 +4,9 @@ import BlogPage from "./pages/BlogPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ServicePage from "./pages/ServicePage.jsx";
+import LoginPage from "./DasPage/LoginPage.jsx";
+import RegistrationPage from "./DasPage/RegistrationPage.jsx";
+import Dashboard from "./DasPage/Dashboard.jsx";
 
 function App() {
 
@@ -17,6 +20,12 @@ function App() {
                 <Route path="/about" element={<AboutPage />}/>
                 <Route path="/contact" element={<ContactPage />}/>
                 <Route path="/service" element={<ServicePage />}/>
+
+
+                <Route path="/login" element={<LoginPage />}/>
+                <Route path="/registration" element={<RegistrationPage />}/>
+                <Route path="/dashboard" element={<Dashboard />}/>
+
             </Routes>
         </BrowserRouter>
     </>

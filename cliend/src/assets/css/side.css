@@ -1,0 +1,8 @@
+.side-logo{
+    height: 100px !important;
+    width: 100px !important;
+}
+
+ul li{
+    cursor: pointer;
+}

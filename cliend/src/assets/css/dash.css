@@ -1,0 +1,32 @@
+
+
+.logo-container{
+    display: flex !important;
+    align-items: center !important;
+    & h4 {
+        font-weight: bold !important;
+        color: #0c0c0c !important;
+    }
+    & img {
+        height: 40px !important;
+        margin-right: 10px;
+    }
+}
+
+.container{
+    display: flex !important;
+    justify-content: space-between !important;
+    & img {
+        height: 40px !important;
+        border-radius: 9999px;
+    }
+}
+
+.dasLogin{
+    & h3{
+        font-weight: bold !important;
+    }
+    max-width: 600px;
+    margin: auto;
+}
+
