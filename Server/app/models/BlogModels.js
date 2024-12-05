@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const blocSchema = new mongoose.Schema(
     {
-        tittle: {type: String},
+        title: {type: String},
         sub_dis: {type: String},
         img: {type: String},
         remark :{type: String},

@@ -1,6 +1,9 @@
 import DasLayout from "../DasLayout/DasLayout.jsx";
 import DasBlogComponent from "../DasComponent/blog/DasBlogComponent.jsx";
-import Sidebar from "../DasComponent/Sidebar/Sidebar.jsx";
+import Sidebar from "../DasComponent/sidebar/Sidebar.jsx";
+import DasTeam from "../DasComponent/Team/DasTeam.jsx";
+import DasService from "../DasComponent/service/DasService.jsx";
+import DasFormData from "../DasComponent/formData/DasFormData.jsx";
 
 
 const Dashboard = () => {
@@ -13,6 +16,9 @@ const Dashboard = () => {
                     </div>
                     <div className="col-9">
                         <DasBlogComponent />
+                        <DasTeam />
+                        <DasService />
+                        <DasFormData />
                     </div>
                 </div>
             </div>

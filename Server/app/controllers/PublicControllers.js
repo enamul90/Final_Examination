@@ -10,7 +10,6 @@ const ObjectId = mongoose.Types.ObjectId;
 
 export const PublicBlogController = async (req, res) => {
 
-    console.log( req.params.remark)
     try{
 
         let prams = req.params.remark

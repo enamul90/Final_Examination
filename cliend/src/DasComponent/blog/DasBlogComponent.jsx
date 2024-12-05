@@ -58,9 +58,9 @@ const DasBlogComponent = () => {
                 <thead>
                 <tr className="head">
                     <th>SL</th>
-                    <th>IMAGE</th>
-                    <th>TITTLE</th>
-                    <th>SUB DIS</th>
+                    <th>Image</th>
+                    <th>Tittle</th>
+                    <th>Short Description</th>
                     <th>Settings</th>
                 </tr>
                 </thead>

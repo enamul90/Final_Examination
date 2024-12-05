@@ -6,7 +6,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className="sidebar py-5 px-4 bg-white shadow-lg rounded-1 h-100">
+        <div className="sidebar py-5 px-4 bg-white border-1 border rounded-1 h-100">
             <img className="side-logo  d-block m-auto" src={logo} alt="logo" />
 
             <ul className="nav mt-5 pt-2 d-block">

@@ -5,7 +5,7 @@ import ContactForm from "../component/contact/ContactForm.jsx";
 const ContactPage = () => {
     return (
         <Layout>
-                <ContactForm />
+            <ContactForm />
         </Layout>
     );
 };

@@ -16,10 +16,6 @@
 .container{
     display: flex !important;
     justify-content: space-between !important;
-    & img {
-        height: 40px !important;
-        border-radius: 9999px;
-    }
 }
 
 .dasLogin{

@@ -7,6 +7,7 @@ import ServicePage from "./pages/ServicePage.jsx";
 import LoginPage from "./DasPage/LoginPage.jsx";
 import RegistrationPage from "./DasPage/RegistrationPage.jsx";
 import Dashboard from "./DasPage/Dashboard.jsx";
+import BlogDetail from "./pages/BlogDetail.jsx";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/about" element={<AboutPage />}/>
                 <Route path="/contact" element={<ContactPage />}/>
                 <Route path="/service" element={<ServicePage />}/>
+                <Route path="/blogDetail/:id" element={<BlogDetail />}/>
 
 
                 <Route path="/login" element={<LoginPage />}/>

@@ -10,8 +10,9 @@ const DasNab = () => {
                     <img src={logo} alt="logo"/>
                     <h4 className="mt-1">Dashboard</h4>
                 </div>
-
-                <img src={logo} alt="logo"/>
+                <div className="logo-container">
+                    <img src={logo} alt="logo"/>
+                </div>
             </div>
         </div>
     );

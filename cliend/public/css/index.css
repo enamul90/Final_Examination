@@ -44,6 +44,12 @@ li{
   list-style: none;
 }
 
+li:hover{
+  list-style: none;
+  cursor: pointer;
+  color: #6534fa;
+}
+
 .blog-cart{
   & img {
     height: 200px;
@@ -70,4 +76,9 @@ li{
 
 a{
   text-decoration: none !important;
+}
+
+.contact-form{
+  max-width: 900px;
+  margin: auto;
 }

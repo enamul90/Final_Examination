@@ -5,7 +5,7 @@ import ServiceComponent from "../component/service/ServiceComponent.jsx";
 const ServicePage = () => {
     return (
         <Layout>
-                    <ServiceComponent />
+            <ServiceComponent />
         </Layout>
     );
 };

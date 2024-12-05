@@ -48,13 +48,13 @@ const AppNav = () => {
                                 <Link className="nav-item" to={"/"}>
                                     <a className="nav-link active" aria-current="page" >Home</a>
                                 </Link>
-                                <Link className="nav-item" to={"blog"}>
+                                <Link className="nav-item" to={"/blog"}>
                                     <a className="nav-link" >Blog</a>
                                 </Link>
                                 <Link className="nav-item" to={"/about"}>
                                     <a className="nav-link" >About</a>
                                 </Link>
-                                <Link className="nav-item" to={"/contact"}>
+                                <Link className="nav-item" to={"/service"}>
                                     <a className="nav-link" >Service</a>
                                 </Link>
                                 <Link className="nav-item"  to={"/service"}>
