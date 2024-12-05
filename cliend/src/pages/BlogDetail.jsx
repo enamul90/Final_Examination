@@ -1,7 +1,7 @@
 import Layout from "../layout/Layout.jsx";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
-import PublicStore from "../Storer/PublicStore.js";
+import PublicStore from "../Store/PublicStore.js";
 import "../assets/css/blogDetail.css"
 
 

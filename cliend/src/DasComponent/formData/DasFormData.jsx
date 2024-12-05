@@ -1,28 +1,20 @@
+import FormStore from "../../Store/FormStore.js";
+import {useEffect} from "react";
+
 
 
 const DasFormData = () => {
-    const data = [
-        { id: 1,
-            name: "Md Hossen",
-            email: "uiux",
-            comment: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-        },
-        { id: 1,
-            name: "Md Hossen",
-            email: "uiux",
-            comment: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-        },
-        { id: 1,
-            name: "Md Hossen",
-            email: "uiux",
-            comment: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-        },
-        { id: 1,
-            name: "Md Hossen",
-            email: "uiux",
-            comment: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-        },
-    ];
+
+    const {FormReq, FormData } =  FormStore()
+
+    useEffect(() => {
+        (
+            async () => {
+                await FormReq()
+            }
+        )()
+    }, [])
+
 
     return (
         <>
@@ -30,7 +22,6 @@ const DasFormData = () => {
             <div className="ps-2">
                 <div className="table-hero">
                     <h6>Form List</h6>
-
                 </div>
 
 
@@ -45,12 +36,12 @@ const DasFormData = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {data.map((item, i) => (
+                    {FormData.map((item, i) => (
                         <tr key={i}>
                             <td>{i + 1}</td>
-                            <td>{item.name}</td>
-                            <td>{item. email}</td>
-                            <td>{item.comment}</td>
+                            {/*<td>{item.name}</td>*/}
+                            {/*<td>{item. email}</td>*/}
+                            {/*<td>{item.comment}</td>*/}
                             <td>Delete</td>
                         </tr>
                     ))}

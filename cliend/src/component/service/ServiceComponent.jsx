@@ -1,4 +1,4 @@
-import PublicStore from "../../Storer/PublicStore.js";
+import PublicStore from "../../Store/PublicStore.js";
 import {useEffect} from "react";
 
 let img = "https://media.istockphoto.com/id/1911521660/photo/call-center-workers.jpg?s=2048x2048&w=is&k=20&c=aqismQ-upRCbz4epN01cqqjFptQCnt0Xv5BhmnZlR4g="

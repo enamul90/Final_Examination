@@ -4,9 +4,14 @@ import Sidebar from "../DasComponent/sidebar/Sidebar.jsx";
 import DasTeam from "../DasComponent/Team/DasTeam.jsx";
 import DasService from "../DasComponent/service/DasService.jsx";
 import DasFormData from "../DasComponent/formData/DasFormData.jsx";
+import DashboardManageStore from "../Store/DashboardManageStore.js";
 
 
 const Dashboard = () => {
+
+    const {   BlogManage , TeamManage , ServiceManage , FormManage} = DashboardManageStore()
+
+
     return (
         <DasLayout>
             <div className="dashboard container">
@@ -15,10 +20,20 @@ const Dashboard = () => {
                             <Sidebar />
                     </div>
                     <div className="col-9">
-                        <DasBlogComponent />
-                        <DasTeam />
-                        <DasService />
-                        <DasFormData />
+                        {
+                            BlogManage? <DasBlogComponent /> : null
+                        }
+                        {
+                            TeamManage? <DasTeam /> : null
+                        }
+
+                        {
+                            ServiceManage? <DasService />: null
+                        }
+                        {
+                            FormManage? <DasFormData /> : null
+                        }
+
                     </div>
                 </div>
             </div>

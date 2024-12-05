@@ -31,7 +31,8 @@ export const Login = async (req, res) => {
     try{
 
         let reqBody = req.body;
-        let data = await UsersModels.findOne(reqBody);
+        let {email, password} = reqBody
+        let data = await UsersModels.findOne({email: email, password: password});
 
         if(data==null){
             return res.json({Status:"fail", Message:"User does not exist"});
@@ -39,7 +40,8 @@ export const Login = async (req, res) => {
 
         else {
             let token=Encode.TokenEncode(data['email'],data['type'])
-            res.cookie('token',token, { maxAge: 10000*60*60, httpOnly: false })
+
+            res.cookie('token',token,{maxAge: 10000*60*60, httpOnly:false,sameSite:"none",secure:true, })
             return res.json({Status:"success", Message:"User login Successfully",data:data, token:token});
         }
     }

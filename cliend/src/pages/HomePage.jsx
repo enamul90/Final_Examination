@@ -4,7 +4,7 @@ import BlogCart from "../component/Blog/BlogCart.jsx";
 import HomeFeature from "../component/homeComponent/HomeFeature.jsx";
 import BlogHeaderHome from "../component/homeComponent/BlogHeaderHome.jsx";
 import {useEffect} from "react";
-import PublicStore from "../Storer/PublicStore.js";
+import PublicStore from "../Store/PublicStore.js";
 
 const HomePage = () => {
 

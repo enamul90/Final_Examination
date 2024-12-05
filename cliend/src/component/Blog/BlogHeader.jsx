@@ -1,4 +1,4 @@
-import PublicStore from "../../Storer/PublicStore.js";
+import PublicStore from "../../Store/PublicStore.js";
 import {useRef} from "react";
 
 
