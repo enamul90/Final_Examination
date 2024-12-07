@@ -8,7 +8,7 @@ const AddBlogDetail = () => {
     let {id} = useParams();
     const navigate = useNavigate();
 
-    const {BlogDetailCreateFormData, SetBlogDetailCreateFormData,  BlogDetailCreateReq} = BlogStore()
+    const {BlogDetailCreateFormData, SetBlogDetailCreateFormData,  BlogDetailCreateReq, } = BlogStore()
     let {BlogID} = BlogDetailCreateFormData
 
     const FormSubmitHandel = async (e)=>{

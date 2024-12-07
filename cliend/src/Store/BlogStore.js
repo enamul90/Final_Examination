@@ -1,6 +1,6 @@
 import {create} from "zustand";
 import axios from "axios";
-const base_url = "http://localhost:3005/api";
+const base_url = "https://vercel-deploy-exm-blog.vercel.app/api";
 const AllBlogListApi = base_url + "/allBlogList";
 const BlogDeleteApi = base_url + "/deleteBlog/";
 const BlogCreateApi = base_url + "/createBlog";
@@ -83,12 +83,12 @@ const BlogStore  = create((set)=>({
 
     BlogDetailReq: async (id)=>{
         let res = await axios.get(BlogDetailReadApi + id, token);
-
         if(res.status === 200){
             return (res.data['data'])
         }
 
     },
+
 
 
 }))

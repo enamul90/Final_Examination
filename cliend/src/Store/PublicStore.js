@@ -1,7 +1,7 @@
 import {create} from "zustand";
 import axios from "axios";
 
-const base_url = "http://localhost:3005/api";
+const base_url = "https://vercel-deploy-exm-blog.vercel.app/api";
 const BlogListApi = base_url + "/blogList/";
 const TeamListApi = base_url + "/teamList";
 const ServiceListApi = base_url + "/service";
