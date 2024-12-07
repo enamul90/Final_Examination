@@ -1,24 +1,30 @@
 import {create} from "zustand";
 import axios from "axios";
 const base_url = "http://localhost:3005/api";
-const FormApi = base_url + "/allTeamList";
+const FormApi = base_url + "/allContractFromList";
+const DeleteFormApi = base_url + "/deleteContractFrom/";
 
+
+
+let token = {
+    headers: {
+        token: sessionStorage.getItem("token")
+    }
+}
 const FormStore  = create((set)=>({
 
-    FormData : null,
-    FormReq : async ()=>{
+    DasFormData : null,
+    DasFormReq : async ()=>{
 
-        let token = {
-            headers: {
-                token: sessionStorage.getItem("token")
-            }
-        }
         let res = await axios.get(FormApi, token);
-        set({FormData : res.data['data']})
+        set({DasFormData : res.data['data']})
 
     },
 
-
+    DasFormDelete : async (e)=>{
+        let res = await axios.delete(DeleteFormApi + e,token);
+        return res.status===200
+    }
 
 
 }))

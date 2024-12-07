@@ -8,8 +8,9 @@ export const createBlockController = async (req, res)=>{
     try{
         
         let reqBody = req.body;
-        await BlockModels.create(reqBody);
-        return res.json({status:"Blog create successfully"});
+        const data = await BlockModels.create(reqBody);
+
+        return res.json({status:"Blog create successfully", data:data._id});
     }
     catch(err){
         return res.json({status:"fail", Message:"Blocklist failed", Error:err.toString()});
@@ -39,10 +40,10 @@ export const updateBlogController = async (req, res)=>{
     try{
         let id = new ObjectId(req.params.id)
         let reqBody = req.body
-        let {tittle,sub_dis,img,remark,} = reqBody
+        let {title,sub_dis,img,remark,} = reqBody
         
         let Body= {
-            tittle: tittle,
+            title: title,
             sub_dis: sub_dis,
             img: img,
             remark :remark,

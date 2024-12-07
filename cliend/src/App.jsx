@@ -8,6 +8,10 @@ import LoginPage from "./DasPage/LoginPage.jsx";
 import RegistrationPage from "./DasPage/RegistrationPage.jsx";
 import Dashboard from "./DasPage/Dashboard.jsx";
 import BlogDetail from "./pages/BlogDetail.jsx";
+import AddService from "./DasComponent/service/AddService.jsx";
+import AddTeam from "./DasComponent/Team/AddTeam.jsx";
+import AddBlog from "./DasComponent/blog/AddBlog.jsx";
+import AddBlogDetail from "./DasComponent/blog/AddBlogDetail.jsx";
 
 function App() {
 
@@ -27,6 +31,10 @@ function App() {
                 <Route path="/login" element={<LoginPage />}/>
                 <Route path="/registration" element={<RegistrationPage />}/>
                 <Route path="/dashboard" element={<Dashboard />}/>
+                <Route path="/addService" element={<AddService />}/>
+                <Route path="/addTeam" element={<AddTeam />}/>
+                <Route path="/addBlog" element={<AddBlog />}/>
+                <Route path="/addBlogDetail/:id" element={<AddBlogDetail />}/>
 
             </Routes>
         </BrowserRouter>

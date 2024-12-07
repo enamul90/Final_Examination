@@ -38,13 +38,13 @@ export const updateServiceController = async (req, res)=>{
     try{
         let id = new ObjectId(req.params.id)
         let reqBody = req.body
-        let {tittle,sub_dis,img,remark,} = reqBody
+        let {tittle,sub_dis,img,dis} = reqBody
         
         let Body= {
             tittle: tittle,
             sub_dis: sub_dis,
             img: img,
-            remark :remark,
+            dis :dis,
         }
 
         await ServiceModel.updateOne( {_id:id},{$set:Body}, {upsert:true} )

@@ -1,78 +1,126 @@
 
 import "../../assets/css/List.css"
-
+import TeamStore from "../../Store/TeamStore.js";
+import {useEffect} from "react";
+import toast from "react-hot-toast";
+import { useNavigate} from "react-router-dom";
 const DasTeam = () => {
 
-    const data = [
-        { id: 1,
-            img: 'https://plus.unsplash.com/premium_photo-1661382344894-69fbc6262577?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            name: "Md Hossen",
-            department: "uiux",
-            comment: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-        },
-        { id: 1,
-            img: 'https://plus.unsplash.com/premium_photo-1661382344894-69fbc6262577?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            name: "Md Hossen",
-            department: "uiux",
-            comment: 'It is a long established fact that a  the readable content of a page when looking at its layout.'
-        },        { id: 1,
-            img: 'https://plus.unsplash.com/premium_photo-1661382344894-69fbc6262577?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            name: "Md Hossen",
-            department: "uiux",
-            comment: 'It is a long established fact that a readable content of a page when looking at its layout.'
-        },
-    ];
+    const navigate = useNavigate();
 
-    return (
-        <>
+    const {AllTeamList,AllTeamListReq , TeamListDeleteReq , SetTeamFormData , TeamFormData} =TeamStore()
 
-            <div className="ps-2">
+    useEffect(()=>{
+
+        (
+            async ()=>{
+                await AllTeamListReq()
+            }
+        )()
+    }, [])
+
+    const DeleteTeamHandel = async (id)=>{
+        const res = await TeamListDeleteReq(id)
+        if(res){
+            await AllTeamListReq()
+            toast.success('deleted successfully !')
+        }
+        else{
+            toast.error('deleted Fail !')
+        }
+    }
+
+    const updateTeamHandel = async (i ,id)=>{
+        SetTeamFormData("id", id)
+        SetTeamFormData("name", AllTeamList[i].name)
+        SetTeamFormData("department", AllTeamList[i].department)
+        SetTeamFormData("img", AllTeamList[i].img)
+        SetTeamFormData("comment", AllTeamList[i].comment)
+
+        navigate('/addTeam')
+
+    }
+
+    if(AllTeamList ===null){
+        return(
+            <h1 className="p-5 bg-light text-center">Loading.......</h1>
+        )
+    }
+
+    else  if(AllTeamList.length < 1){
+        return(
+            <div>
+                <h1 className="p-5 bg-light text-center">Team List Empty</h1>
                 <div className="table-hero">
                     <h6>Team List</h6>
-
-                    <button>Create Time</button>
-                </div>
-
-
-                <table className="styled-table ">
-                    <thead>
-                    <tr className="head">
-                        <th>SL</th>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Comment</th>
-                        <th>Image</th>
-                        <th>Settings</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {data.map((item, i) => (
-                        <tr key={i}>
-                            <td>{i + 1}</td>
-                            <td>{item.name}</td>
-                            <td>{item.department}</td>
-                            <td>{item.comment}</td>
-                            <td>
-                                <img className="table-image" alt="be" src={item.img}/>
-                            </td>
-                            <td>Edit Delete</td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-
-
-                <div className="container mt-3">
-                    <div className="row w-100">
-                        <div className="m-0 col-">
-
-                        </div>
-                    </div>
+                    <button onClick={()=>{navigate("/addTeam")}}>Create Time</button>
                 </div>
             </div>
 
-        </>
-    );
+        )
+    } else {
+        return (
+            <>
+
+                <div className="ps-2">
+
+                    <div className="table-hero">
+                        <h6>Team List</h6>
+                        <button onClick={() => {
+                            navigate("/addTeam")
+                        }}>Create Time
+                        </button>
+                    </div>
+
+                    <table className="styled-table ">
+                        <thead>
+                        <tr className="head">
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Comment</th>
+                            <th>Image</th>
+                            <th>Settings</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {AllTeamList.map((item, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>{i + 1}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.department}</td>
+                                    <td>{item.comment}</td>
+                                    <td>
+                                        <img className="table-image" alt="be" src={item.img}/>
+                                    </td>
+                                    <td>
+                                        <button onClick={()=>{updateTeamHandel(i, item._id)}} className="m-2">Edit</button>
+                                        <button onClick={() => {
+                                            DeleteTeamHandel(item._id)
+                                        }}>Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                        </tbody>
+                    </table>
+
+
+                    <div className="container mt-3">
+                        <div className="row w-100">
+                            <div className="m-0 col-">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </>
+        );
+    }
+
 };
 
 export default DasTeam;

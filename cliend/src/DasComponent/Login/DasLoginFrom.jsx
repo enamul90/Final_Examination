@@ -17,6 +17,7 @@ const DasLoginFrom = () => {
             sessionStorage.setItem("token", token)
             navigate("/dashboard")
             toast.success("Login submit successfully")
+            location.reload();
         }
         else{
             toast.error("Form submit failed")
