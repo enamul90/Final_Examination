@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 
 const DasBlogComponent = () => {
     const navigate = useNavigate();
-    const {AllBlogList, AllBlogListReq, BlogDeleteReq, SetBlogCreateFormData ,BlogCreateFormData} =  BlogStore()
+    const {AllBlogList, AllBlogListReq, BlogDeleteReq, SetBlogCreateFormData } =  BlogStore()
 
     useEffect(() => {
         (

@@ -11,19 +11,19 @@ const AppNav = () => {
                     </Link>
 
                     <ul className="navbar-nav ms-auto d-none  d-md-flex flex-row  pe-3">
-                        <Link className="nav-item" to={"/"}>
+                        <Link className={location.pathname === "/" ? "fw-semibold" : "ms-3"} to={"/"}>
                             <a className="nav-link " aria-current="page" >Home</a>
                         </Link>
-                        <Link className="nav-item ms-3" to={"/blog"}>
+                        <Link className={`ms-3  ${location.pathname === "/blog" ? "fw-semibold" : "ms-3"}` } to={"/blog"}>
                             <a className="nav-link" >Blog</a>
                         </Link>
-                        <Link className="nav-item ms-3" to={"/about"}>
+                        <Link className={`ms-3  ${location.pathname === "/about" ? "fw-semibold" : "ms-3"}`} to={"/about"}>
                             <a className="nav-link" >About</a>
                         </Link>
-                        <Link className="nav-item ms-3" to={"/contact"}>
+                        <Link className={`ms-3  ${location.pathname === "/contact" ? "fw-semibold" : "ms-3"}`}  to={"/contact"}>
                             <a className="nav-link" >Contact</a>
                         </Link>
-                        <Link className="nav-item ms-3" to={"/service"}>
+                        <Link className={`ms-3  ${location.pathname === "/service" ? "fw-semibold" : "ms-3"}`} to={"/service"}>
                             <a className="nav-link">Service</a>
                         </Link>
 

@@ -9,16 +9,32 @@ const AddBlogDetail = () => {
     const navigate = useNavigate();
 
     const {BlogDetailCreateFormData, SetBlogDetailCreateFormData,  BlogDetailCreateReq} = BlogStore()
+    let {BlogID} = BlogDetailCreateFormData
 
     const FormSubmitHandel = async (e)=>{
         e.preventDefault();
-        let res = await BlogDetailCreateReq(id,BlogDetailCreateFormData )
-        if(res){
-            toast.success("Blog Detail Created Successfully")
-            navigate("/addBlog")
+
+        if(BlogID ===null){
+            let res = await BlogDetailCreateReq(id,BlogDetailCreateFormData )
+            if(res){
+                toast.success("Blog Detail Created Successfully")
+                navigate("/dashboard")
+            }
+            else {
+                toast.error("Blog Detail Create Failed")
+            }
         }
+
         else {
-            toast.error("Blog Detail Update Failed")
+            let res = await BlogDetailCreateReq(id,BlogDetailCreateFormData )
+            if(res){
+                toast.success("Blog Detail Update Successfully")
+                navigate("/dashboard")
+            }
+            else {
+                toast.error("Blog Detail Update Failed")
+            }
+
         }
 
     }
@@ -38,7 +54,7 @@ const AddBlogDetail = () => {
                             onChange={(e) => {
                                 SetBlogDetailCreateFormData("blog_des1", e.target.value)
                             }}
-                            // ref={SetServiceFormData.tittle}
+                            value={BlogDetailCreateFormData.blog_des1}
                             className="form-control"
                             rows={5}
 
@@ -50,7 +66,7 @@ const AddBlogDetail = () => {
                             onChange={(e) => {
                                 SetBlogDetailCreateFormData("blog_des2", e.target.value)
                             }}
-                            // ref={SetServiceFormData.img}
+                            value={BlogDetailCreateFormData.blog_des2}
                             className="form-control"
                             rows="5"
 

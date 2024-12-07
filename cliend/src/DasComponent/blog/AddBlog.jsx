@@ -7,7 +7,7 @@ import  {useNavigate} from "react-router-dom";
 const AddBlog = () => {
     const navigate = useNavigate();
 
-    const {BlogCreateFormData, SetBlogCreateFormData, BlogCreateReq ,BlogUpdateReq} = BlogStore()
+    const {BlogCreateFormData, SetBlogCreateFormData, BlogCreateReq ,BlogUpdateReq , BlogDetailReq , SetBlogDetailCreateFormData, } = BlogStore()
 
     const FormSubmitHandel = async (e)=>{
         e.preventDefault();
@@ -15,7 +15,11 @@ const AddBlog = () => {
         let {id} = BlogCreateFormData;
         if (id ===null){
             let res = await BlogCreateReq(BlogCreateFormData)
-
+            SetBlogCreateFormData( "remark", "")
+            SetBlogCreateFormData( "img", "")
+            SetBlogCreateFormData( "sub_dis", "")
+            SetBlogCreateFormData( "title", "")
+            SetBlogCreateFormData( "id",id)
             if(res.status === 200){
                 toast.success("Blog Created Successfully")
                 navigate(`/addBlogDetail/${res.data['data']}`)
@@ -26,7 +30,13 @@ const AddBlog = () => {
         }
         else {
             let res =  await  BlogUpdateReq(id, BlogCreateFormData)
+
             if(res){
+                let BlogDetail = await  BlogDetailReq(id)
+                SetBlogDetailCreateFormData("id" ,id)
+                SetBlogDetailCreateFormData("blog_des1",BlogDetail['blog_des1'] )
+                SetBlogDetailCreateFormData("blog_des2",BlogDetail['blog_des2'] )
+
                 toast.success("Blog Update Successfully");
                 navigate("/addBlogDetail/"+id)
             }

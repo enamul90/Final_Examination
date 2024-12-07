@@ -1,9 +1,10 @@
 import DasLayout from "../../DasLayout/DasLayout.jsx";
 import TeamStore from "../../Store/TeamStore.js";
 import toast from "react-hot-toast";
-
+import {useNavigate} from "react-router-dom";
 
 const AddTeam = () => {
+    const navigate = useNavigate();
 
     let {TeamFormData, SetTeamFormData,  TeamFormCreateReq, TeamFormUpdateReq}= TeamStore()
 
@@ -13,6 +14,12 @@ const AddTeam = () => {
             let res = await TeamFormCreateReq(TeamFormData)
             if(res){
                 toast.success("Team created successfully.")
+                SetTeamFormData("id", "")
+                SetTeamFormData("name","")
+                SetTeamFormData("department","")
+                SetTeamFormData("img", "")
+                SetTeamFormData("comment", "")
+                navigate('/dashboard')
             }
             else{
                 toast.error("Team created failed")
@@ -23,6 +30,12 @@ const AddTeam = () => {
             let res = await TeamFormUpdateReq(TeamFormData)
             if(res){
                 toast.success("Team Update successfully.")
+                SetTeamFormData("id", "")
+                SetTeamFormData("name","")
+                SetTeamFormData("department","")
+                SetTeamFormData("img", "")
+                SetTeamFormData("comment", "")
+                navigate('/dashboard')
             }
             else{
                 toast.error("Team Update failed")

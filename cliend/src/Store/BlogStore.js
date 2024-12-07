@@ -6,8 +6,7 @@ const BlogDeleteApi = base_url + "/deleteBlog/";
 const BlogCreateApi = base_url + "/createBlog";
 const BlogDetailCreateApi = base_url + "/createBlogDetail/";
 const BlogUpdateApi = base_url + "/updateBlog/";
-// const BlogDetailReadApi = base_url + "/createBlogDetail/";
-// const BlogDetailUpdateApi = base_url + "/createBlogDetail/";
+const BlogDetailReadApi = base_url + "/readBlogDetail/";
 
 let token = {
     headers: {
@@ -73,13 +72,23 @@ const BlogStore  = create((set)=>({
         }
     },
 
+
+
     BlogUpdateReq : async (id,body)=>{
         let res = await axios.post ( BlogUpdateApi+id ,body ,token)
         if(res.status === 200){
             return true
         }
-    }
+    },
 
+    BlogDetailReq: async (id)=>{
+        let res = await axios.get(BlogDetailReadApi + id, token);
+
+        if(res.status === 200){
+            return (res.data['data'])
+        }
+
+    },
 
 
 }))

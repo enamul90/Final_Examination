@@ -2,9 +2,10 @@ import DasLayout from "../../DasLayout/DasLayout.jsx";
 import "../../assets/css/dash.css"
 import ServiceStore from "../../Store/Service.js";
 import toast from "react-hot-toast";
+import {useNavigate} from "react-router-dom";
 
 const AddService = () => {
-
+    const navigate = useNavigate();
     const {SetServiceFormData, ServiceFormData,ServiceFormCreate, ServiceUpdateReq} = ServiceStore()
 
     const FormHandel = async (e)=>{
@@ -13,6 +14,12 @@ const AddService = () => {
             let res = await ServiceFormCreate(ServiceFormData)
             if(res){
                 toast.success('Add service created successfully!')
+                SetServiceFormData("tittle","")
+                SetServiceFormData( "sub_dis","")
+                SetServiceFormData( "img", "")
+                SetServiceFormData( "dis", "")
+                SetServiceFormData( "id","")
+                navigate('/dashboard')
             }
             else{
                 toast.error('Service created failed!')
@@ -23,6 +30,12 @@ const AddService = () => {
             let res = await ServiceUpdateReq(ServiceFormData)
             if(res){
                 toast.success('Update service created successfully!')
+                SetServiceFormData("tittle","")
+                SetServiceFormData( "sub_dis","")
+                SetServiceFormData( "img", "")
+                SetServiceFormData( "dis", "")
+                SetServiceFormData( "id","")
+                navigate('/dashboard')
             }
             else{
                 toast.error('Service Update failed!')

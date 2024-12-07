@@ -113,10 +113,7 @@ export const readBlogDetailController = async (req, res) => {
         ]);
 
 
-        let result ={
-            blogList:blogList[0],
-            blogDetail :blogDetail[0]
-        }
+        let result = blogDetail[0]
 
 
         return res.json({Status:"Success", data:result});

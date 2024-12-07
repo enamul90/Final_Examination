@@ -38,7 +38,6 @@ const DasTeam = () => {
         SetTeamFormData("comment", AllTeamList[i].comment)
 
         navigate('/addTeam')
-
     }
 
     if(AllTeamList ===null){

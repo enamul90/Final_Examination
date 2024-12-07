@@ -4,12 +4,11 @@ import {useNavigate} from "react-router-dom";
 const BlogCart = () => {
     const navigate = useNavigate();
 
-    const {BlogList}= PublicStore()
+    let {BlogList}= PublicStore()
 
-    const BlogDetails = () => {
+    let url = window.location.pathname;
 
 
-    }
 
     if(BlogList == null){
         return (
@@ -32,7 +31,27 @@ const BlogCart = () => {
                 <div className="row w-100 g-4">
 
                     {
-                        BlogList.map((item, index) => {
+                        url === "/" ? BlogList.slice(0, 6).map((item, index) => {
+                            return (
+                                <div key={index} className="col-12 col-md-6 col-lg-3 ">
+                                    <div className="card ">
+                                        <img src={item.img} alt="img" className="card-img-top"/>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{item.title}</h5>
+                                            <p className="card-text ">{item.sub_dis}</p>
+                                            <a
+                                                onClick={()=>navigate(`/blogDetail/${item._id}`)}
+                                                className="btn btn-primary
+                                                w-100"
+                                            >
+                                                See More
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            )
+                        }): BlogList.map((item, index) => {
                             return (
                                 <div key={index} className="col-12 col-md-6 col-lg-3 ">
                                     <div className="card ">
@@ -53,6 +72,7 @@ const BlogCart = () => {
                                 </div>
                             )
                         })
+
                     }
 
                 </div>
