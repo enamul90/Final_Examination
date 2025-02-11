@@ -1,4 +1,3 @@
-
 import "../../assets/css/List.css"
 import BlogStore from "../../Store/BlogStore.js";
 import {useEffect} from "react";
@@ -55,11 +54,13 @@ const DasBlogComponent = () => {
             </div>
 
         )
-    } else {
+    }
+
+    else {
         return (
             <div className="ps-2">
                 <div className="table-hero">
-                <h6>All Blog List</h6>
+                     <h6>All Blog List</h6>
                     <button onClick={()=>navigate('/addBlog')}>Create Blog</button>
                 </div>
 
@@ -86,23 +87,23 @@ const DasBlogComponent = () => {
                                 <td>{item.sub_dis}</td>
                                 <td>
                                     <button
-                                        className="m-2"
+                                        className="my-2 w-100"
                                         onClick={() => {
                                         EditHandel(i, item._id)
                                     }}>Edit
                                     </button>
-                                    <button onClick={() => {
+                                    <button className="w-100" onClick={() => {
                                         DeleteHandel(item._id)
                                     }} >Delete
                                     </button>
                                 </td>
                             </tr>
                         )
+
                         }
                     )}
                     </tbody>
                 </table>
-
 
                 <div className="container mt-3">
                     <div className="row w-100">

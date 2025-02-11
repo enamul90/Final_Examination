@@ -97,9 +97,9 @@ const DasService = () => {
                                     <td>
                                         <button onClick={() => {
                                             EditHandel(i, id)
-                                        }} className="m-2">Edit
+                                        }} className="my-2 w-100">Edit
                                         </button>
-                                        <button onClick={() => {
+                                        <button className="w-100" onClick={() => {
                                             DeleteServiceHandel(item._id)
                                         }}>Delete
                                         </button>

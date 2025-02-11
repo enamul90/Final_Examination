@@ -57,33 +57,45 @@ const Sidebar = () => {
 
     }
 
-    return (
-        <div className="sidebar py-5 px-4 bg-white border-1 border rounded-1 h-100">
-            <img className="side-logo  d-block m-auto" src={logo} alt="logo" />
 
-            <ul className="nav mt-5 pt-2 d-block">
+
+    return (
+        <div className="sidebar py-5 px-4 bg-white border rounded shadow-sm h-100">
+            <img className="side-logo d-block mx-auto mb-4" src={logo} alt="Logo" />
+
+            <ul className="nav flex-column">
                 <li
-                    ref={(a)=>BlogRef=a}
+                    ref={(a) => (BlogRef = a)}
                     onClick={BlogHeader}
-                    className="nav-item mt-2 fs-5 text-primary "
+                    className="nav-item py-2 px-3 fs-5 text-primary rounded hover-bg"
                 >
                     Blog List
                 </li>
                 <li
-                    ref={(a)=>TeamRef=a}
+                    ref={(a) => (TeamRef = a)}
                     onClick={TeamHeader}
-                    className="nav-item mt-2 fs-5 ">Team List</li>
+                    className="nav-item py-2 px-3 fs-5 text-dark rounded hover-bg"
+                >
+                    Team List
+                </li>
                 <li
-                    ref={(a)=> ServiceRef=a}
-                    onClick={ ServiceHeader}
-                    className="nav-item mt-2 fs-5 ">Service List</li>
+                    ref={(a) => (ServiceRef = a)}
+                    onClick={ServiceHeader}
+                    className="nav-item py-2 px-3 fs-5 text-dark rounded hover-bg"
+                >
+                    Service List
+                </li>
                 <li
-                    ref={(a)=>FormRef=a}
+                    ref={(a) => (FormRef = a)}
                     onClick={FormHeader}
-                    className="nav-item mt-2 fs-5 "> Form Data</li>
+                    className="nav-item py-2 px-3 fs-5 text-dark rounded hover-bg"
+                >
+                    Form Data
+                </li>
             </ul>
         </div>
     );
+
 };
 
 export default Sidebar;

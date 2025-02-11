@@ -94,8 +94,8 @@ const DasTeam = () => {
                                         <img className="table-image" alt="be" src={item.img}/>
                                     </td>
                                     <td>
-                                        <button onClick={()=>{updateTeamHandel(i, item._id)}} className="m-2">Edit</button>
-                                        <button onClick={() => {
+                                        <button onClick={()=>{updateTeamHandel(i, item._id)}} className="my-2 w-100">Edit</button>
+                                        <button className="w-100" onClick={() => {
                                             DeleteTeamHandel(item._id)
                                         }}>Delete
                                         </button>

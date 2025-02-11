@@ -2,12 +2,19 @@ import "../../assets/css/dash.css"
 import {useNavigate} from "react-router-dom";
 import UserStore from "../../Store/UserStore.js";
 import toast from "react-hot-toast";
+import {useEffect} from "react";
 
 
 const DasLoginFrom = () => {
     const navigate = useNavigate();
-
     const {   LoginFormData, LoginFormDataSet,  LoginReq } =  UserStore()
+    let LoginStatus = sessionStorage.getItem("token")
+
+    useEffect(() => {
+        if(LoginStatus){
+            navigate("/dashboard");
+        }
+    },[])
 
     const FormSubmit = async (e)=>{
         e.preventDefault();

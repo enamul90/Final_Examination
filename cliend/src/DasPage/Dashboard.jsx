@@ -5,12 +5,22 @@ import DasTeam from "../DasComponent/Team/DasTeam.jsx";
 import DasService from "../DasComponent/service/DasService.jsx";
 import DasFormData from "../DasComponent/formData/DasFormData.jsx";
 import DashboardManageStore from "../Store/DashboardManageStore.js";
-import AddService from "../DasComponent/service/AddService.jsx";
+import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 
 const Dashboard = () => {
-
+    const navigate = useNavigate();
     const {   BlogManage , TeamManage , ServiceManage , FormManage} = DashboardManageStore()
+    let LoginStatus = sessionStorage.getItem("token")
+
+    useEffect(() => {
+        if(! LoginStatus){
+            navigate("/login")
+        }
+    },[])
+
+
 
 
     return (
